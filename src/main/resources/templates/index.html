@@ -10,7 +10,8 @@
 	<div th:replace="common/header :: header_fragment"></div>
 
 	<div id="contents">
-		Hello World
+		<h1>Hello World</h1>
+		<p th:text="${datetime}"></p>
 	</div>
 
 	<!-- th:replaceを使用して、 フッター用のフラグメントを読込みます -->

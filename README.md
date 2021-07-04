@@ -14,7 +14,7 @@ DBへの接続処理も含め、Webアプリケーションの基本的な処理
 - Java: OpenJDK 16  
 - SpringBoot: 2.5.2  
 - TemplateEngine: Thymeleaf  
-- O/RM: Spring JDBV
+- O/RM: Spring JDBC
 - BuildTool: Maven  
 - DB: MySQL 8.0.23  
 

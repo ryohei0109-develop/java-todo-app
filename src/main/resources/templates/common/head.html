@@ -1,12 +1,21 @@
 <head xmlns:th="http://www.thymeleaf.org" th:fragment="head_fragment(title, scripts, links)">
-  <meta charset="UTF-8">
-  <title th:text="${title}"></title>
-  <!-- 全ページ共通のcss -->
-  <link rel="stylesheet" type="text/css" th:href="@{/css/base.css}"/>
-  <!-- 各ページ専用のcss -->
-  <th:block th:replace="${links}" />
-  <!-- 全ページ共通のjs -->
-  <script type="text/javascript" th:src="@{/scripts/base.js}"></script>
-  <!-- 各ページ専用のjs -->
-  <th:block th:replace="${scripts}" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title th:text="${title}"></title>
+
+	<!-- Bootstrap core CSS -->
+	<link href=https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css rel="stylesheet">
+	<!-- Custom styles -->
+	<link rel="stylesheet" href="/css/common.css">
+	<!-- 各ページ専用のcss -->
+	<th:block th:replace="${links}" />
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+		crossorigin="anonymous"></script>
+
+	<!-- 全ページ共通のjs -->
+	<script type="text/javascript" src="/scripts/base.js"></script>
+	<!-- 各ページ専用のjs -->
+	<th:block th:replace="${scripts}" />
 </head>

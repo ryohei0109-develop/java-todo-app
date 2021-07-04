@@ -7,15 +7,40 @@
 
 <body>
 	<!-- th:replaceを使用して、 ヘッダー用のフラグメントを読込みます -->
-	<div th:replace="common/header :: header_fragment"></div>
+	<header th:replace="common/header :: header_fragment"></header>
 
-	<div id="contents">
-		<h1>Hello World</h1>
-		<p th:text="${datetime}"></p>
-	</div>
+	<main class="flex-shrink-0">
+		<div class="container">
+			<h1>Spring Bootで実装したTODOアプリケーションサンプルです。</h1>
+
+			<button type="button" class="btn btn-outline-dark btn-sm">Create</button>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Title</th>
+						<th scope="col">Description</th>
+						<th scope="col">CreatedAt</th>
+						<th scope="col">UpdatedAt</th>
+						<th scope="col">Operation</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">1</th>
+						<td>Title</td>
+						<td>Description</td>
+						<td th:text="${datetime}"></td>
+						<td th:text="${datetime}"></td>
+						<td><button type="button" class="btn btn-outline-danger btn-sm">Delete</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</main>
 
 	<!-- th:replaceを使用して、 フッター用のフラグメントを読込みます -->
-	<div th:replace="common/footer :: footer_fragment"></div>
+	<footer th:replace="common/footer :: footer_fragment"></footer>
 </body>
 
 </html>

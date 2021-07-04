@@ -1,12 +1,20 @@
 <html>
 
 <head th:replace="common/head :: head_fragment(title = 'TODO App', scripts = ~{::script}, links = ~{::link})">
-	<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}" />
 	<script type="text/javascript" th:src="@{/scripts/index.js}"></script>
 </head>
 
 <body>
-	Hello World
+	<!-- th:replaceを使用して、 ヘッダー用のフラグメントを読込みます -->
+	<div th:replace="common/header :: header_fragment"></div>
+
+	<div id="contents">
+		Hello World
+	</div>
+
+	<!-- th:replaceを使用して、 フッター用のフラグメントを読込みます -->
+	<div th:replace="common/footer :: footer_fragment"></div>
 </body>
 
 </html>

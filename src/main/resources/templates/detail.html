@@ -1,0 +1,36 @@
+<html>
+
+<head th:replace="common/head :: head_fragment(title = 'TODO App', scripts = ~{::script}, links = ~{::link})">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/detail.css}" />
+	<script type="text/javascript" th:src="@{/scripts/detail.js}"></script>
+</head>
+
+<body>
+	<!-- th:replaceを使用して、 ヘッダー用のフラグメントを読込みます -->
+	<header th:replace="common/header :: header_fragment"></header>
+
+	<main class="flex-shrink-0">
+		<div class="container">
+			<h1>詳細</h1>
+			<form action="#" th:action="@{/detail/save}" th:object="${todo}" method="post">
+				<div class="mb-3">
+					<label class="form-label">Title</label>
+					<input type="text" name="title" class="form-control" th:value="${todo} ? ${todo.title} : ''">
+				</div>
+				<div class="mb-3">
+					<label class="form-label">Description</label>
+					<input type="text" name="description" class="form-control"
+						th:value="${todo} ? ${todo.description} : ''">
+				</div>
+				<input type="hidden" name="id" th:value="${todo} ? ${todo.id} : ''">
+				<input type="submit" value="Submit" class="btn btn-primary" />
+				<!--<button type="submit" class="btn btn-primary">Submit</button>-->
+			</form>
+		</div>
+	</main>
+
+	<!-- th:replaceを使用して、 フッター用のフラグメントを読込みます -->
+	<footer th:replace="common/footer :: footer_fragment"></footer>
+</body>
+
+</html>

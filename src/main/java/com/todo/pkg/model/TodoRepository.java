@@ -34,4 +34,22 @@ public class TodoRepository {
 
 		return list;
 	}
+
+	public void save(Todo todo) {
+		if (todo.getId() > 0) {
+			update(todo);
+		} else {
+			insert(todo);
+		}
+	}
+
+	private void insert(Todo todo) {
+		jdbcTemplate.update("INSERT INTO `todos`(`title`,`description`) Values(?,?)", todo.getTitle(),
+				todo.getDescription());
+	}
+
+	private void update(Todo todo) {
+		jdbcTemplate.update("UPDATE `todos` SET `title` = ?, `description` = ? WHERE `id` = ?", todo.getTitle(),
+				todo.getDescription(), todo.getId());
+	}
 }

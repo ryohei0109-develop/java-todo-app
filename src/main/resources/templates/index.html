@@ -26,12 +26,12 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<th scope="row">1</th>
-						<td>Title</td>
-						<td>Description</td>
-						<td th:text="${datetime}"></td>
-						<td th:text="${datetime}"></td>
+					<tr th:each="list : ${todoList}">
+						<td th:text="${list.id}"></td>
+						<td><a th:text="${list.title}" th:attr="href=@{/test/{todoId}(todoId=${list.id})}"></a></td>
+						<td th:text="${list.description}"></td>
+						<td th:text="*{#temporals.format(list.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
+						<td th:text="*{#temporals.format(list.updatedAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
 						<td><button type="button" class="btn btn-outline-danger btn-sm">Delete</button></td>
 					</tr>
 				</tbody>

@@ -52,4 +52,8 @@ public class TodoRepository {
 		jdbcTemplate.update("UPDATE `todos` SET `title` = ?, `description` = ? WHERE `id` = ?", todo.getTitle(),
 				todo.getDescription(), todo.getId());
 	}
+
+	public void delete(int id) {
+		jdbcTemplate.update("DELETE FROM `todos` WHERE `id` = ?", id);
+	}
 }

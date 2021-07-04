@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.todo.pkg.model.Todo;
 import com.todo.pkg.model.TodoRepository;
 
@@ -42,6 +44,13 @@ public class DetailController {
 	@PostMapping("/save")
 	public String save(@ModelAttribute Todo todo, Model model) {
 		todoRepository.save(todo);
+
+		return "redirect:/";
+	}
+	
+	@PostMapping("/delete")
+	public String delete(@RequestParam int id, Model model) {
+		todoRepository.delete(id);
 
 		return "redirect:/";
 	}

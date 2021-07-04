@@ -28,11 +28,18 @@
 				<tbody>
 					<tr th:each="list : ${todoList}">
 						<td th:text="${list.id}"></td>
-						<td><a th:text="${list.title}" th:attr="href=@{/detail/{todoId}(todoId=${list.id})}"></a></td>
+						<td>
+							<a th:text="${list.title}" th:attr="href=@{/detail/{todoId}(todoId=${list.id})}"></a>
+						</td>
 						<td th:text="${list.description}"></td>
 						<td th:text="*{#temporals.format(list.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
 						<td th:text="*{#temporals.format(list.updatedAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
-						<td><button type="button" class="btn btn-outline-danger btn-sm">Delete</button></td>
+						<td>
+							<form action="#" th:action="@{/detail/delete}" method="post">
+								<input type="hidden" name="id" th:value="${list.id}">
+								<button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+							</form>
+						</td>
 					</tr>
 				</tbody>
 			</table>
